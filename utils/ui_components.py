@@ -1,4 +1,4 @@
-import streamlit as st
+﻿import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
 
@@ -97,7 +97,6 @@ CUSTOM_CSS = """
         margin-top: 4px;
     }
 
-<<<<<<< HEAD
     /* Agentic Status Card */
     .agent-card {
         background: #0f172a;
@@ -127,8 +126,6 @@ CUSTOM_CSS = """
         line-height: 1.4;
     }
 
-=======
->>>>>>> origin/main
     /* Option Cards on Upload Page */
     .option-card {
         background: #0f172a;
@@ -204,18 +201,8 @@ CUSTOM_CSS = """
         color: #64748b;
     }
 
-<<<<<<< HEAD
     .pipeline-step.active { color: #38bdf8; }
     .pipeline-step.done { color: #34d399; }
-=======
-    .pipeline-step.active {
-        color: #38bdf8;
-    }
-
-    .pipeline-step.done {
-        color: #34d399;
-    }
->>>>>>> origin/main
 
     .step-icon {
         width: 26px;
@@ -355,25 +342,18 @@ CUSTOM_CSS = """
 def inject_custom_css():
     st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-<<<<<<< HEAD
 def render_header(title: str, subtitle: str, dataset_name: str = "No Active Dataset", domain: str = "N/A", status: str = "Waiting for Dataset", category: str = "Structured"):
-=======
-def render_header(title: str, subtitle: str, dataset_name: str = "No Active Dataset", domain: str = "N/A", status: str = "Waiting for Dataset"):
->>>>>>> origin/main
     status_class = "badge-ready" if status in ["Ready", "Analyzed", "Completed"] else "badge-waiting"
-    status_icon = "●" if status in ["Ready", "Analyzed", "Completed"] else "○"
+    status_icon = "ΓùÅ" if status in ["Ready", "Analyzed", "Completed"] else "Γùï"
 
     st.markdown(f"""
     <div class="main-header">
         <h1>{title}</h1>
         <p>{subtitle}</p>
         <div class="status-strip">
-            <div class="status-pill">📊 <b>Dataset:</b> {dataset_name}</div>
-<<<<<<< HEAD
-            <div class="status-pill">📦 <b>Category:</b> {category}</div>
-=======
->>>>>>> origin/main
-            <div class="status-pill">🎯 <b>Domain:</b> {domain}</div>
+            <div class="status-pill">≡ƒôè <b>Dataset:</b> {dataset_name}</div>
+            <div class="status-pill">≡ƒôª <b>Category:</b> {category}</div>
+            <div class="status-pill">≡ƒÄ» <b>Domain:</b> {domain}</div>
             <div class="status-pill"><span class="badge {status_class}">{status_icon} Status: {status}</span></div>
         </div>
     </div>
@@ -388,13 +368,12 @@ def render_kpi(label: str, value: str, subtext: str = "", color: str = "#38bdf8"
     </div>
     """, unsafe_allow_html=True)
 
-<<<<<<< HEAD
 def render_agent_card(agent_name: str, stage: str, status_type: str, message: str, reasoning: str, action: str, result: str):
     card_cls = status_type.lower() if status_type.lower() in ['success', 'warning', 'action'] else ''
     st.markdown(f"""
     <div class="agent-card {card_cls}">
         <div class="agent-title">
-            <span>🤖 <b>{agent_name}</b> <small style="color:#94a3b8;">[{stage}]</small></span>
+            <span>≡ƒñû <b>{agent_name}</b> <small style="color:#94a3b8;">[{stage}]</small></span>
             <span class="badge badge-ready">{status_type}</span>
         </div>
         <div class="agent-body">
@@ -407,9 +386,6 @@ def render_agent_card(agent_name: str, stage: str, status_type: str, message: st
     """, unsafe_allow_html=True)
 
 def create_dqi_gauge(score: float, title: str = "Overall Dataset Quality Health"):
-=======
-def create_dqi_gauge(score: float):
->>>>>>> origin/main
     if score >= 90:
         bar_color = "#10b981"
         label_text = "EXCELLENT"
@@ -452,11 +428,7 @@ def create_dqi_gauge(score: float):
 
     return fig, label_text, bar_color
 
-<<<<<<< HEAD
 def create_dimensions_bar_chart(dimensions: dict, title: str = "Dimension Score (%)"):
-=======
-def create_dimensions_bar_chart(dimensions: dict):
->>>>>>> origin/main
     categories = list(dimensions.keys())
     values = [float(v) for v in dimensions.values()]
 
@@ -476,19 +448,11 @@ def create_dimensions_bar_chart(dimensions: dict):
         textfont=dict(color='#ffffff', size=11, family='Inter')
     ))
 
-<<<<<<< HEAD
-=======
-    # FIX PLOTLY AXIS FONT BUG (Use title.font and tickfont instead of direct font attribute)
->>>>>>> origin/main
     fig.update_layout(
         xaxis=dict(
             range=[0, 100],
             gridcolor='#1e293b',
-<<<<<<< HEAD
             title=dict(text=title, font=dict(color='#94a3b8', size=11)),
-=======
-            title=dict(text="Dimension Score (%)", font=dict(color='#94a3b8', size=11)),
->>>>>>> origin/main
             tickfont=dict(color='#94a3b8', size=11)
         ),
         yaxis=dict(
@@ -518,10 +482,6 @@ def create_before_after_chart(initial_dqi: float, cleaned_dqi: float):
         textfont=dict(size=14, color='#ffffff', family='Inter')
     ))
 
-<<<<<<< HEAD
-=======
-    # FIX PLOTLY AXIS FONT BUG (Use title.font and tickfont instead of direct font attribute)
->>>>>>> origin/main
     fig.update_layout(
         title=dict(text=f"Quality Improvement Progression (Delta: {delta:+.2f} pts)", font=dict(size=13, color='#94a3b8')),
         yaxis=dict(
@@ -543,42 +503,26 @@ def create_before_after_chart(initial_dqi: float, cleaned_dqi: float):
     return fig
 
 def render_pipeline_tracker(session_state: dict):
-<<<<<<< HEAD
     has_raw = session_state.get("raw_df") is not None or session_state.get("unstructured_text") is not None
     has_cleaned = session_state.get("cleaned_df") is not None
     has_agent_state = session_state.get("agent_state") is not None
 
     stages = [
-        {"name": "INGEST", "icon": "↥", "done": has_raw},
-        {"name": "PROFILE", "icon": "◫", "done": has_raw},
-        {"name": "ASSESS", "icon": "◉", "done": has_raw},
-        {"name": "PLAN", "icon": "✦", "done": has_agent_state},
-        {"name": "CLEAN", "icon": "♻", "done": has_cleaned},
-        {"name": "VALIDATE", "icon": "✓", "done": has_cleaned},
-        {"name": "TRANSFORM", "icon": "⌁", "done": has_cleaned},
-        {"name": "LOAD", "icon": "⇄", "done": has_cleaned},
-        {"name": "MONITOR", "icon": "🩺", "done": has_agent_state}
-=======
-    has_raw = session_state.get("raw_df") is not None
-    has_cleaned = session_state.get("cleaned_df") is not None
-    has_anomaly = session_state.get("anomaly_res") is not None
-
-    stages = [
-        {"name": "UPLOAD", "icon": "↥", "done": has_raw},
-        {"name": "PROFILE", "icon": "◫", "done": has_raw},
-        {"name": "DQI", "icon": "◉", "done": has_raw},
-        {"name": "RECOMMEND", "icon": "✦", "done": len(session_state.get("issues", [])) > 0 or has_raw},
-        {"name": "CLEAN", "icon": "♻", "done": has_cleaned},
-        {"name": "VALIDATE", "icon": "✓", "done": has_cleaned},
-        {"name": "ANOMALY", "icon": "⌁", "done": has_anomaly},
-        {"name": "ETL", "icon": "⇄", "done": has_cleaned}
->>>>>>> origin/main
+        {"name": "INGEST", "icon": "ΓåÑ", "done": has_raw},
+        {"name": "PROFILE", "icon": "Γù½", "done": has_raw},
+        {"name": "ASSESS", "icon": "Γùë", "done": has_raw},
+        {"name": "PLAN", "icon": "Γ£ª", "done": has_agent_state},
+        {"name": "CLEAN", "icon": "ΓÖ╗", "done": has_cleaned},
+        {"name": "VALIDATE", "icon": "Γ£ô", "done": has_cleaned},
+        {"name": "TRANSFORM", "icon": "Γîü", "done": has_cleaned},
+        {"name": "LOAD", "icon": "Γçä", "done": has_cleaned},
+        {"name": "MONITOR", "icon": "≡ƒ⌐║", "done": has_agent_state}
     ]
 
     html_steps = ""
     for s in stages:
         cls = "done" if s["done"] else ("active" if has_raw else "")
-        mark = "✓" if s["done"] else s["icon"]
+        mark = "Γ£ô" if s["done"] else s["icon"]
         html_steps += f"""<div class="pipeline-step {cls}"><div class="step-icon">{mark}</div><div>{s['name']}</div></div>"""
 
     st.markdown(f"""<div class="pipeline-tracker">{html_steps}</div>""", unsafe_allow_html=True)
@@ -586,17 +530,16 @@ def render_pipeline_tracker(session_state: dict):
 def render_how_it_works():
     st.markdown("""
     <div class="how-it-works-container">
-<<<<<<< HEAD
-        <div class="how-it-works-title">⚡ How DataPulse Works (Agentic AI Workflow)</div>
+        <div class="how-it-works-title">ΓÜí How DataPulse Works (Agentic AI Workflow)</div>
         <div class="how-flow">
             <div class="how-step">01 Upload</div>
-            <div class="how-arrow">→</div>
+            <div class="how-arrow">ΓåÆ</div>
             <div class="how-step">02 Detect & Profile</div>
-            <div class="how-arrow">→</div>
+            <div class="how-arrow">ΓåÆ</div>
             <div class="how-step">03 Assess Quality</div>
-            <div class="how-arrow">→</div>
+            <div class="how-arrow">ΓåÆ</div>
             <div class="how-step">04 Agentic Plan</div>
-            <div class="how-arrow">→</div>
+            <div class="how-arrow">ΓåÆ</div>
             <div class="how-step">05 Clean & Validate</div>
         </div>
         <div style="font-size:12px; color:#cbd5e1; margin-top:8px;">
@@ -604,33 +547,11 @@ def render_how_it_works():
         </div>
         <div class="how-footer">
             <span><b>Supported Formats:</b> CSV, XLSX, JSON, XML, TXT, PDF, DOCX</span>
-            <span>·</span>
+            <span>┬╖</span>
             <span><b>Engine:</b> 10-Agent AI Pipeline</span>
-            <span>·</span>
+            <span>┬╖</span>
             <span><b>Output:</b> Clean CSV & PostgreSQL Export</span>
-=======
-        <div class="how-it-works-title">⚡ How DataPulse Works</div>
-        <div class="how-flow">
-            <div class="how-step">01 Upload</div>
-            <div class="how-arrow">→</div>
-            <div class="how-step">02 Profile</div>
-            <div class="how-arrow">→</div>
-            <div class="how-step">03 Analyze</div>
-            <div class="how-arrow">→</div>
-            <div class="how-step">04 Improve</div>
-            <div class="how-arrow">→</div>
-            <div class="how-step">05 Validate</div>
-        </div>
-        <div style="font-size:12px; color:#cbd5e1; margin-top:8px;">
-            DataPulse analyzes your dataset, identifies quality issues, recommends safe actions, and validates the resulting quality improvement.
-        </div>
-        <div class="how-footer">
-            <span><b>Supported Format:</b> CSV</span>
-            <span>·</span>
-            <span><b>Processing:</b> Local & Private</span>
-            <span>·</span>
-            <span><b>Output:</b> Quality Analysis & Cleaned Dataset</span>
->>>>>>> origin/main
         </div>
     </div>
     """, unsafe_allow_html=True)
+
