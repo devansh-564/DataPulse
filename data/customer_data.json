@@ -1,0 +1,56 @@
+[
+  {
+    "Customer_ID": 1001,
+    "Customer_Name": " Rahul Sharma ",
+    "Email": "rahul.sharma@gmail.com",
+    "Purchase_Date": "2024-01-15",
+    "Age": 28.0,
+    "City": "Mumbai",
+    "Annual_Income": 45000
+  },
+  {
+    "Customer_ID": 1002,
+    "Customer_Name": "Priya Patel",
+    "Email": "priya.p@yahoo.com",
+    "Purchase_Date": "2024-02-10",
+    "Age": NaN,
+    "City": "Delhi",
+    "Annual_Income": 52000
+  },
+  {
+    "Customer_ID": 1003,
+    "Customer_Name": "Amit Verma",
+    "Email": "amit.verma@invalid",
+    "Purchase_Date": "2024-01-20",
+    "Age": 34.0,
+    "City": "Bangalore",
+    "Annual_Income": -15000
+  },
+  {
+    "Customer_ID": 1004,
+    "Customer_Name": "Neha Gupta",
+    "Email": "neha.gupta@gmail.com",
+    "Purchase_Date": "2024-03-05",
+    "Age": 29.0,
+    "City": NaN,
+    "Annual_Income": 61000
+  },
+  {
+    "Customer_ID": 1005,
+    "Customer_Name": "Vikram Singh",
+    "Email": "vikram.singh@gmail",
+    "Purchase_Date": "2024-02-28",
+    "Age": 42.0,
+    "City": "Chennai",
+    "Annual_Income": 72000
+  },
+  {
+    "Customer_ID": 1001,
+    "Customer_Name": " Rahul Sharma ",
+    "Email": "rahul.sharma@gmail.com",
+    "Purchase_Date": "2024-01-15",
+    "Age": 28.0,
+    "City": "Mumbai",
+    "Annual_Income": 45000
+  }
+]

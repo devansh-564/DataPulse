@@ -1,0 +1,7 @@
+Customer_ID,Customer_Name,Email,Purchase_Date,Age,City,Annual_Income
+1001, Rahul Sharma ,rahul.sharma@gmail.com,2024-01-15,28.0,Mumbai,45000
+1002,Priya Patel,priya.p@yahoo.com,2024-02-10,,Delhi,52000
+1003,Amit Verma,amit.verma@invalid,2024-01-20,34.0,Bangalore,-15000
+1004,Neha Gupta,neha.gupta@gmail.com,2024-03-05,29.0,,61000
+1005,Vikram Singh,vikram.singh@gmail,2024-02-28,42.0,Chennai,72000
+1001, Rahul Sharma ,rahul.sharma@gmail.com,2024-01-15,28.0,Mumbai,45000

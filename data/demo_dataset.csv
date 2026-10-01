@@ -1,0 +1,12 @@
+Customer_ID,Name,Age,Region,Salary,Email,Join_Date
+101,John Doe ,34,North,65000,john.doe@example.com,2023-01-15
+102,Jane Smith,28,South,72000,jane.smith@example.com,2023-02-20
+103,Robert Brown,,West,58000,robert.b@example.com,2023-03-10
+104,Emily Davis,42,East,,emily.davis@example.com,15/04/2023
+105,Michael Wilson,39,North,81000,,2023-05-12
+106,Sarah Taylor,,South,49000,sarah.t.example.com,2023-06-18
+107,David Miller,51,East,95000,david.m@example.com,2023-07-22
+108,Jessica Anderson,31,West,62000,jessica.a@example.com,2023-08-30
+109,James Jackson,45,North,77000,james.j@example.com,2023-09-05
+110,Amanda White,36,South,69000,amanda.w@example.com,2023-10-14
+101,John Doe ,34,North,65000,john.doe@example.com,2023-01-15
